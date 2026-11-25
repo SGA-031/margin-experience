@@ -1106,20 +1106,20 @@ b,strong{font-weight:700}
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8c7ed732-0b2e-4c3c-a4d6-b45e737629ab"></script>
 <script>
 (function () {
-  function ev(name, data) { if (window.umami && umami.track) umami.track(name, data); }
+  function ev(name) { if (window.umami && umami.track) umami.track(name); }
   document.addEventListener('DOMContentLoaded', function () {
     var seen = {};
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           var id = e.target.id;
-          if (e.isIntersecting && !seen[id]) { seen[id] = 1; ev('section', { id: id }); io.unobserve(e.target); }
+          if (e.isIntersecting && !seen[id]) { seen[id] = 1; ev('read: ' + id); io.unobserve(e.target); }
         });
       }, { threshold: 0.25 });
       document.querySelectorAll('main section[id], article.scene[id]').forEach(function (s) { io.observe(s); });
     }
     [30, 120, 300, 600].forEach(function (t) {
-      setTimeout(function () { if (document.visibilityState === 'visible') ev('time-on-page', { seconds: t }); }, t * 1000);
+      setTimeout(function () { if (document.visibilityState === 'visible') ev('open ' + (t < 60 ? t + ' s' : t / 60 + ' min')); }, t * 1000);
     });
   });
 })();
