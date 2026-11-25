@@ -1103,6 +1103,27 @@ b,strong{font-weight:700}
 .wh{background:var(--surface);border:1px solid var(--line)}
 
 </style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8c7ed732-0b2e-4c3c-a4d6-b45e737629ab"></script>
+<script>
+(function () {
+  function ev(name, data) { if (window.umami && umami.track) umami.track(name, data); }
+  document.addEventListener('DOMContentLoaded', function () {
+    var seen = {};
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          var id = e.target.id;
+          if (e.isIntersecting && !seen[id]) { seen[id] = 1; ev('section', { id: id }); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.25 });
+      document.querySelectorAll('main section[id], article.scene[id]').forEach(function (s) { io.observe(s); });
+    }
+    [30, 120, 300, 600].forEach(function (t) {
+      setTimeout(function () { if (document.visibilityState === 'visible') ev('time-on-page', { seconds: t }); }, t * 1000);
+    });
+  });
+})();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -1816,7 +1837,7 @@ b,strong{font-weight:700}
       <li><b>Why they return:</b> what is due, fading, underneath and coming. It grows as the school, teacher and parent join.</li>
       <li><b>Why it is different:</b> others answer the question. Margin holds her book, her week and her history, inside an app that already has the videos, games and mentors.</li>
     </ul>
-    <small>Screens are prototypes; names, marks and times are examples. Quoted replies are from the matched test of 18 November 2026. Market and research facts were checked between 16 and 25 November 2026; most product facts are the companies' own descriptions. The rules, loops and measures are recommendations. Research notes: research_notes/Product experience 2026-11-25/.</small>
+    <small>Screens are prototypes; names, marks and times are examples. Quoted replies are from the matched test of 18 November 2026. Market and research facts were checked between 16 and 25 November 2026; most product facts are the companies' own descriptions. The rules, loops and measures are recommendations. This page counts visits with Umami: no cookies, no names, approximate location only.</small>
   </div>
 </section>
 
